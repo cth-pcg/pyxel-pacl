@@ -27,3 +27,8 @@ class Cloudable(AbcCloudable):
             return
 
         ...
+
+
+class Player:
+    def update():
+        ...
