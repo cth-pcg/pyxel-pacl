@@ -5,14 +5,20 @@ from abc import ABC, abstractmethod
 from .server import connections
 
 
+avaliable_cloudable = list[Cloudable]()
+
+
 class Cloudable(ABC):
 
     _cloudable_original: Callable
+    _is_started = False
+    _connection: Connection | None = None
 
     def __init_subclass__(cls, **kwargs) -> None:
         super().__init_subclass__(**kwargs)
         cls._cloudable_original = cls.update
         cls.update = cls._update_override
+        avaliable_cloudable.append(cls)
 
     @abstractmethod
     def update(self) -> None: ...
@@ -27,4 +33,5 @@ class Cloudable(ABC):
                 if name in old_values and old_values[name] != value:
                     updated_values[name] = value
                 old_values[name] = value
-        connections[id_].queue.put(updated_values)
+        assert self._connections is not None
+        self._connection.queue.put(updated_values)

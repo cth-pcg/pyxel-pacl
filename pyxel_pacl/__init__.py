@@ -1,7 +1,7 @@
 
-from .server import prepare as prepare_server
+from .server import run as run_server
 
 
-def prepare() -> None:
+def run() -> None:
     if True: # もしクラウドでの実行だったら。
-        prepare_server()
+        run_server()

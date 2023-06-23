@@ -1,12 +1,9 @@
 import pyxel
 
-from ..pyxel_pacl import prepare
+from ..pyxel_pacl import run
 
 
-prepare()
-
-
-class App:
+class App(Cloudable):
     def __init__(self):
         pyxel.init(160, 120, title="Hello Pyxel")
         pyxel.image(0).load(0, 0, "assets/pyxel_logo_38x16.png")
@@ -22,5 +19,4 @@ class App:
         pyxel.blt(61, 66, 0, 0, 0, 38, 16)
 
 
-app = App()
-app.update()
+run()
