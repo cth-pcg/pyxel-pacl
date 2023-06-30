@@ -2,9 +2,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 from collections.abc import Callable
-from abc import ABC, abstractmethod, abstractstaticmethod
-
-from .server import Connection
+from abc import ABC, abstractmethod
 
 if TYPE_CHECKING:
     from .common import CloudableCore as AbcCloudableCore

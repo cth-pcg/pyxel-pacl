@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 from sys import platform
 
-from .types_ import Cloudable as AbcCloudable
+from .common import Cloudable as AbcCloudable
 
 
 @dataclass
