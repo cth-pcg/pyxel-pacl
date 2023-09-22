@@ -40,7 +40,6 @@ class Connection:
         self.components = []
         for raw_component in avaliable_cloudable:
             c = raw_component()
-            c._connection = self
             self.components.append(c)
 
     async def start(self) -> None:
@@ -74,6 +73,7 @@ async def on_connect(websocket: WebSocketServerProtocol):
 
     await c.start()
 
+
 async def main():
     async with serve(on_connect, "localhost", 8765):
         await Future()
@@ -94,5 +94,6 @@ class CloudableCore(AbcCloudableCore):
                 if name in old_values and old_values[name] != value:
                     updated_values[name] = value
                 old_values[name] = value
+
         assert self._connection is not None
         self._connection.queue.put_nowait(updated_values)

@@ -13,7 +13,6 @@ class CloudableCore(ABC):
     """`.Cloudable`の根幹の処理の抽象基底クラス。
     このクラスは、`.Cloudable`の挙動を決定するためのものです。"""
 
-    @abstractstaticmethod
     @staticmethod
     def init_subclass(cls_: type[Cloudable]) -> None:
         "`Cloudable`が継承された際に呼ばれる関数です。"

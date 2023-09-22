@@ -1,3 +1,5 @@
+__all__ = ("run_server", "run_client", "Cloudable", "run")
+
 try:
     from .server import run as run_server
 except ModuleNotFoundError:
@@ -10,6 +12,7 @@ from .common import Cloudable
 
 
 def run() -> None:
+    "環境によってクライアントまたはサーバーを動かします。"
     if True: # もしクラウドでの実行だったら。
         run_server()
     else:

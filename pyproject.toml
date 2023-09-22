@@ -1,0 +1,10 @@
+[project]
+name = "pyxel_pacl"
+version = "0.1.0a1"
+authors = [
+    {name = "Chiba-Tech", email = "saposoudan@chiba-th.ed.jp"},
+]
+dependencies = []
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "BSD-4-Clause"}
